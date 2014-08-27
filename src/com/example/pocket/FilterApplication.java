@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import com.example.pocket.BrowseApplicationInfoAdapter.ViewHolder;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
@@ -22,6 +24,7 @@ public class FilterApplication  extends Activity{
 	public static final int FILTER_SDCARD_APP = 3; // 安装在SDCard的应用程序
 
 	private ListView listview = null;
+	ViewHolder filterholder = null;
 
 	private PackageManager pm;
 	private int filter = FILTER_ALL_APP; 
