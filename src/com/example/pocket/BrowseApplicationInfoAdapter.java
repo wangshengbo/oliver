@@ -17,13 +17,11 @@ import android.widget.TextView;
 		
 		private List<AppInfo> mlistAppInfo = null;
 		
-		private Context mContext;
 		LayoutInflater infater = null;
 	    
 		public BrowseApplicationInfoAdapter(Context context,  List<AppInfo> apps) {
 			infater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 			mlistAppInfo = apps ;
-			mContext = context;
 		}
 
 		@Override
@@ -42,7 +40,7 @@ import android.widget.TextView;
 		@Override
 		public long getItemId(int position) {
 			// TODO Auto-generated method stub
-			return 0;
+			return position;
 		}
 
 		@Override
@@ -63,12 +61,6 @@ import android.widget.TextView;
 			Filterholder.appIcon.setImageDrawable(appInfo.getAppIcon());
 			Filterholder.tvAppLabel.setText(appInfo.getAppLabel());
 			Filterholder.tvPkgName.setText(appInfo.getPkgName());
-			Filterholder.btn_open.setOnClickListener(new OnClickListener() {
-				public void onClick(View arg0) {
-					Intent LaunchIntent = mContext.getPackageManager().getLaunchIntentForPackage(appInfo.getPkgName());  
-					mContext.startActivity(LaunchIntent);
-				}
-			});
 			return view;
 		}
 
@@ -76,13 +68,11 @@ import android.widget.TextView;
 			ImageView appIcon;
 			TextView tvAppLabel;
 			TextView tvPkgName;
-			Button btn_open;
 
 			public ViewHolder(View view) {
 				this.appIcon = (ImageView) view.findViewById(R.id.imgApp);
 				this.tvAppLabel = (TextView) view.findViewById(R.id.tvAppLabel);
 				this.tvPkgName = (TextView) view.findViewById(R.id.tvPkgName);
-				this.btn_open = (Button) view.findViewById(R.id.btn_open);
 			}
 		}
 	

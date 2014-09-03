@@ -68,14 +68,16 @@ public class HideActivity extends Activity {
 	OnItemClickListener itemListener = new OnItemClickListener() {
 		@Override
 		public void onItemClick(AdapterView<?> l, View v, int position, long id) {
-			LinearLayout view1 = (LinearLayout) l.getChildAt(position);
-			RelativeLayout view = (RelativeLayout) view1.getChildAt(1);  //滑动到底点击，程序崩溃之后显示这一行有错。。不知道为什么
-			CheckBox checkBox = (CheckBox) view.getChildAt(4);
-			checkBox.toggle();
-			
-			System.out.println("clickPosition    " + position);
-//			HideApplicationInfoAdapter.getIsSelected().put(position,
-//					checkBox.isChecked());
+//			LinearLayout view1 = (LinearLayout) l.getChildAt(position);
+//			RelativeLayout view = (RelativeLayout) view1.getChildAt(1);  //滑动到底点击，程序崩溃之后显示这一行有错。。不知道为什么
+//			CheckBox checkBox = (CheckBox) view.getChildAt(4);
+//			checkBox.toggle();
+//			
+//			System.out.println("clickPosition    " + position);
+			Boolean checked = HideApplicationInfoAdapter.getIsSelected().get(position);
+			HideApplicationInfoAdapter.getIsSelected().put(position,
+					!checked);
+			hideAppAdapter.notifyDataSetChanged();
 		}
 	};
 }

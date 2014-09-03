@@ -70,18 +70,19 @@ public class HideApplicationInfoAdapter extends BaseAdapter {
 		holder.appIcon.setImageDrawable(appInfo.getAppIcon());
 		holder.tvAppLabel.setText(appInfo.getAppLabel());
 		holder.tvPkgName.setText(appInfo.getPkgName());
-		holder.checkBox
-		.setOnCheckedChangeListener(new OnCheckedChangeListener() {
-			@Override
-			public void onCheckedChanged(CompoundButton buttonView,
-					boolean isChecked) {
-				if (isChecked)
-					getIsSelected().put(index, true);
-				else
-					getIsSelected().put(index, false);
-			}
-		});
+		
 		holder.checkBox.setChecked(getIsSelected().get(position));
+//		holder.checkBox
+//		.setOnCheckedChangeListener(new OnCheckedChangeListener() {
+//			@Override
+//			public void onCheckedChanged(CompoundButton buttonView,
+//					boolean isChecked) {
+//				if (isChecked)
+//					getIsSelected().put(index, true);
+//				else
+//					getIsSelected().put(index, false);
+//			}
+//		});
 		return view;
 	}
 

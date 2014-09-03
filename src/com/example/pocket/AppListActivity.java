@@ -36,25 +36,25 @@ public class AppListActivity  extends TabActivity {
 		intent=new Intent().setClass(this, FilterApplication.class);  
 		filter = FilterApplication.FILTER_ALL_APP ;
 		intent.putExtra("filter", filter);
-        spec=tabHost.newTabSpec("AllApps").setIndicator("AllApps").setContent(intent);  
+        spec=tabHost.newTabSpec("AllApps").setIndicator("AllApps").setContent(intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));  
         tabHost.addTab(spec);  
           
         intent=new Intent().setClass(this,FilterApplication.class);  
         filter = FilterApplication.FILTER_SYSTEM_APP ;
         intent.putExtra("filter", filter);
-        spec=tabHost.newTabSpec("SystemApps").setIndicator("SystemApps").setContent(intent);  
+        spec=tabHost.newTabSpec("SystemApps").setIndicator("SystemApps").setContent(intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));  
         tabHost.addTab(spec);  
           
         intent=new Intent().setClass(this, FilterApplication.class);  
         filter = FilterApplication.FILTER_THIRD_APP ;
         intent.putExtra("filter", filter);
-        spec=tabHost.newTabSpec("ThirdApps").setIndicator("ThirdApps").setContent(intent);  
+        spec=tabHost.newTabSpec("ThirdApps").setIndicator("ThirdApps").setContent(intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));  
         tabHost.addTab(spec);  
         
         intent=new Intent().setClass(this, FilterApplication.class);  
         filter = FilterApplication.FILTER_SDCARD_APP ;
         intent.putExtra("filter", filter);
-        spec=tabHost.newTabSpec("SDCardApps").setIndicator("SDCardApps").setContent(intent);  
+        spec=tabHost.newTabSpec("SDCardApps").setIndicator("SDCardApps").setContent(intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));  
         tabHost.addTab(spec); 
         tabHost.setCurrentTab(0);  
         
